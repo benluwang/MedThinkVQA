@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MedThinkVQA Leaderboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --maxw: 1180px;
+      --header-offset: 78px;
+      --bg: linear-gradient(170deg, #f3f9ff 0%, #f8fcff 45%, #edf8ff 100%);
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-strong: rgba(255, 255, 255, 0.95);
+      --text: #0d2847;
+      --muted: #4e6379;
+      --line: rgba(18, 80, 130, 0.16);
+      --brand: #126cb7;
+      --brand2: #00a4b5;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --shadow: 0 16px 38px rgba(16, 72, 130, 0.13);
+      --space: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.55;
+      background: var(--bg);
+      min-height: 100vh;
+      letter-spacing: 0.01em;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(40rem 40rem at 5% -10%, rgba(18, 108, 183, 0.24) 0%, rgba(18, 108, 183, 0) 72%),
+        radial-gradient(36rem 36rem at 95% 8%, rgba(0, 164, 181, 0.2) 0%, rgba(0, 164, 181, 0) 70%);
+      pointer-events: none;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 251, 255, 0.74);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    nav {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 12px var(--space);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover { border-color: var(--line); background: rgba(255, 255, 255, 0.7); }
+    nav a:first-child { margin-right: auto; font-family: "Sora", "Manrope", sans-serif; letter-spacing: 0.03em; }
+    nav a:last-child { color: #fff; border: none; background: linear-gradient(135deg, var(--brand), var(--brand2)); }
+
+    main { max-width: var(--maxw); margin: 0 auto; padding: 28px var(--space) 60px; }
+
+    h1, h2 { font-family: "Sora", "Manrope", sans-serif; letter-spacing: 0.02em; }
+    h1 { margin: 0 0 10px; font-size: clamp(2rem, 3vw, 2.7rem); line-height: 1.15; }
+    .sub { color: var(--muted); margin: 0 0 18px; max-width: 66ch; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .links a { margin-right: 0; }
+
+    .btn {
+      display: inline-flex;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn.primary { color: #fff; border: none; background: linear-gradient(135deg, var(--brand), var(--brand2)); }
+
+    .hero { padding: 26px; border-radius: 24px; background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(235, 247, 255, 0.8)); border: 1px solid var(--line); box-shadow: var(--shadow); margin-bottom: 14px; animation: fadeup 0.58s ease both; }
+    .hero-stats { margin-top: 18px; display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: 10px; }
+    .stat { background: var(--panel-strong); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 10px 12px; }
+    .stat small { text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.05em; color: #425f7e; font-weight: 700; }
+    .stat strong { margin-top: 4px; display: block; font-size: 1.22rem; font-family: "Sora", "Manrope", sans-serif; }
+    #statLeader { font-size: 0.98rem; line-height: 1.32; word-break: break-word; }
+    #statUpdated { white-space: nowrap; font-size: 1.05rem; }
+
+    .card { border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 18px; margin: 14px 0; background: var(--panel); backdrop-filter: blur(8px); box-shadow: 0 10px 28px rgba(18, 74, 130, 0.08); animation: fadeup 0.58s ease both; }
+    .card:nth-of-type(2) { animation-delay: 0.05s; }
+    .card:nth-of-type(3) { animation-delay: 0.1s; }
+    .card:nth-of-type(4) { animation-delay: 0.15s; }
+
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .row > * { flex: 1 1 220px; min-width: 190px; }
+    label { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #365978; display: block; margin-bottom: 6px; }
+
+    input[type="text"], select, button { width: 100%; padding: 10px 12px; border: 1px solid rgba(24, 98, 161, 0.24); border-radius: 12px; font-size: 14px; color: var(--text); font-family: "Manrope", "Segoe UI", sans-serif; background: rgba(255, 255, 255, 0.94); }
+    input[type="text"]:focus, select:focus { outline: none; border-color: rgba(18, 108, 184, 0.56); box-shadow: 0 0 0 4px rgba(18, 108, 184, 0.13); }
+    button { font-weight: 700; cursor: pointer; }
+
+    .table-scroll {
+      margin-top: 10px;
+      max-height: 68vh;
+      overflow-y: auto;
+      overflow-x: auto;
+      border: 1px solid rgba(19, 85, 139, 0.16);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    table { width: 100%; border-collapse: collapse; min-width: 900px; }
+    th, td { padding: 10px 8px; border-bottom: 1px solid rgba(19, 85, 139, 0.12); text-align: left; vertical-align: top; font-size: 14px; }
+    th { position: sticky; top: 0; background: rgba(243, 250, 255, 0.98); z-index: 5; cursor: pointer; }
+    tbody tr:hover { background: rgba(216, 242, 255, 0.33); }
+
+    .acc-cell { display: grid; gap: 6px; min-width: 220px; }
+    .acc-value { font-weight: 800; color: #0f3a61; font-size: 0.92rem; font-feature-settings: "tnum" 1; }
+    .acc-track { width: 100%; height: 10px; border-radius: 999px; background: rgba(16, 91, 150, 0.14); overflow: hidden; border: 1px solid rgba(16, 91, 150, 0.18); }
+    .acc-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #22c1a5 0%, #126cb7 100%); }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(22, 92, 150, 0.2); background: rgba(255, 255, 255, 0.8); font-size: 11.5px; font-weight: 700; color: #275075; text-transform: uppercase; letter-spacing: 0.02em; }
+
+    .muted { color: #4b647d; font-size: 13.5px; line-height: 1.5; }
+    footer { border-top: 1px solid var(--line); color: #4d6378; padding: 18px; font-size: 13.5px; background: rgba(246, 251, 255, 0.74); }
+    .nowrap { white-space: nowrap; }
+    .warn { background: linear-gradient(145deg, #ecf8ff, #f6fbff); border: 1px solid rgba(0, 143, 180, 0.24); color: #214464; }
+
+    @keyframes fadeup { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 980px) { :root { --header-offset: 116px; } .hero-stats { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
+    @media (max-width: 700px) { :root { --header-offset: 148px; } main { padding-top: 20px; } .hero, .card { padding: 14px; } table { min-width: 680px; } .table-scroll { max-height: 62vh; } }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="#top">MedThinkVQA</a>
+    <a href="#news">News</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#about">About</a>
+    <a href="submit.html">Submit</a>
+  </nav>
+</header>
+
+<main>
+  <section id="top" class="hero">
+    <h1>Medical Thinking with Multiple Images</h1>
+    <p class="sub">MedThinkVQA is a multi-image radiology reasoning dataset focused on evidence extraction, cross-view synthesis, and diagnostic quality.</p>
+    <p class="links">
+      <a class="btn primary" href="#leaderboard">Explore Leaderboard</a>
+      <a class="btn" href="https://github.com/benluwang/MedThinkVQA#readme" target="_blank" rel="noopener noreferrer">Overview</a>
+      <a class="btn" href="https://github.com/benluwang/MedThinkVQA" target="_blank" rel="noopener noreferrer">Code</a>
+      <a class="btn" href="https://huggingface.co/datasets/bio-nlp-umass/MedThinkVQA" target="_blank" rel="noopener noreferrer">Data</a>
+      <a class="btn" href="submit.html">Submit</a>
+    </p>
+
+    <div class="warn card" style="margin-top: 18px; margin-bottom: 0;">
+      <b>Status:</b> Train and test splits are available on Hugging Face.<br/>
+      <span class="muted">This dataset is for research/education only (CC BY-NC-SA 4.0) and is not for clinical use.</span>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><small>Source</small><strong id="statType">Benchmark</strong></div>
+      <div class="stat"><small>Best Model</small><strong id="statLeader">-</strong></div>
+      <div class="stat"><small>Entries</small><strong id="statEntries">-</strong></div>
+      <div class="stat"><small>Last Updated (UTC)</small><strong id="statUpdated">-</strong></div>
+    </div>
+  </section>
+
+  <section id="news" class="card">
+    <h2 style="margin-top:0;">News</h2>
+    <ul>
+      <li><span class="nowrap">[2026-04-05]</span> Train and test splits were released on Hugging Face.</li>
+      <li><span class="nowrap">[2026-04-05]</span> Public dataset link updated to the canonical Hugging Face page.</li>
+      <li><span class="nowrap">[2026-03-04]</span> Leaderboard and submission flow are live.</li>
+    </ul>
+  </section>
+
+  <section id="leaderboard" class="card">
+    <h2 style="margin-top:0;">Leaderboard</h2>
+    <div id="meta" class="muted">Loading...</div>
+
+    <div id="officialControls">
+      <div class="row" style="margin-top:12px;">
+        <div>
+          <label for="search">Search Model</label>
+          <input id="search" type="text" placeholder="Type model name..." />
+        </div>
+        <div>
+          <label for="modeFilter">Mode</label>
+          <select id="modeFilter">
+            <option value="">All</option>
+            <option value="Thinking">Thinking</option>
+            <option value="Non-thinking">Non-thinking</option>
+            <option value="Unspecified">Unspecified</option>
+          </select>
+        </div>
+        <div>
+          <label for="effortFilter">Reasoning Effort</label>
+          <select id="effortFilter">
+            <option value="">All</option>
+            <option value="xhigh">xhigh</option>
+            <option value="high">high</option>
+            <option value="medium">medium</option>
+            <option value="low">low</option>
+            <option value="minimal">minimal</option>
+            <option value="standard">standard</option>
+            <option value="N/A">N/A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-top:12px;">
+        <div style="flex: 0 0 240px;">
+          <label>&nbsp;</label>
+          <button id="resetBtn">Reset Filters</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="muted" style="margin-top:10px;">
+      <span id="tableHint">Default view shows all benchmark ACC scores. Scroll vertically to browse all rows.</span>
+    </div>
+    <div id="resultMeta" class="muted" style="margin-top:6px;"></div>
+
+    <div class="table-scroll">
+      <table id="table">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="about" class="card">
+    <h2 style="margin-top:0;">About</h2>
+    <p>
+      MedThinkVQA evaluates multi-image diagnostic reasoning quality with a focus on final
+      diagnostic accuracy.
+    </p>
+    <p class="muted">
+      Data are adapted from Eurorad (European Society of Radiology) and released under CC BY-NC-SA 4.0 for research/education only.
+      Not for clinical use.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div style="max-width:1100px;margin:0 auto;">
+    <span class="muted">Maintained via GitHub Issues. Update file: <code>docs/benchmark.json</code>.</span>
+  </div>
+</footer>
+
+<script>
+  const state = {
+    data: null,
+    search: "",
+    mode: "",
+    effort: "",
+    sortKey: "acc",
+    sortDir: "desc"
+  };
+
+  const COLUMNS = [
+    ["rank", "#"],
+    ["model", "Model"],
+    ["mode", "Mode"],
+    ["effort", "Effort"],
+    ["acc", "ACC"]
+  ];
+
+  function fmtAcc(value) {
+    if (typeof value !== "number" || Number.isNaN(value)) return "";
+    return `${(Math.max(0, Math.min(1, value)) * 100).toFixed(2)}%`;
+  }
+
+  function compareValue(a, b, dir) {
+    if (a === null || a === undefined || a === "") return 1;
+    if (b === null || b === undefined || b === "") return -1;
+    if (typeof a === "string" || typeof b === "string") {
+      return dir === "asc" ? String(a).localeCompare(String(b)) : String(b).localeCompare(String(a));
+    }
+    return dir === "asc" ? (a - b) : (b - a);
+  }
+
+  function computeRows() {
+    let rows = (state.data && state.data.entries ? state.data.entries : []).slice();
+    if (state.search) {
+      const q = state.search.toLowerCase();
+      rows = rows.filter(e => (e.model || "").toLowerCase().includes(q));
+    }
+    if (state.mode) rows = rows.filter(e => (e.mode || "") === state.mode);
+    if (state.effort) rows = rows.filter(e => (e.effort || "") === state.effort);
+    const key = state.sortKey || "acc";
+    rows.sort((a, b) => compareValue(a[key], b[key], state.sortDir));
+    return rows.map((e, i) => ({ ...e, _rank: i + 1 }));
+  }
+
+  function renderTable() {
+    const rows = computeRows();
+    const total = (state.data && state.data.entries ? state.data.entries.length : 0);
+    const thead = document.querySelector("#table thead");
+    const tbody = document.querySelector("#table tbody");
+    thead.innerHTML = "";
+    tbody.innerHTML = "";
+
+    const trh = document.createElement("tr");
+    for (const [key, label] of COLUMNS) {
+      const th = document.createElement("th");
+      th.textContent = state.sortKey === key ? `${label} ${state.sortDir === "desc" ? "↓" : "↑"}` : label;
+      th.title = "Click to sort";
+      th.addEventListener("click", () => {
+        if (state.sortKey === key) state.sortDir = (state.sortDir === "asc" ? "desc" : "asc");
+        else {
+          state.sortKey = key;
+          state.sortDir = key === "model" ? "asc" : "desc";
+        }
+        renderTable();
+      });
+      trh.appendChild(th);
+    }
+    thead.appendChild(trh);
+
+    for (const row of rows) {
+      const tr = document.createElement("tr");
+
+      const rankTd = document.createElement("td");
+      rankTd.textContent = String(row._rank);
+      tr.appendChild(rankTd);
+
+      const modelTd = document.createElement("td");
+      modelTd.textContent = row.model || "";
+      tr.appendChild(modelTd);
+
+      const modeTd = document.createElement("td");
+      const modeTag = document.createElement("span");
+      modeTag.className = "tag";
+      modeTag.textContent = row.mode || "Unspecified";
+      modeTd.appendChild(modeTag);
+      tr.appendChild(modeTd);
+
+      const effortTd = document.createElement("td");
+      const effortTag = document.createElement("span");
+      effortTag.className = "tag";
+      effortTag.textContent = row.effort || "N/A";
+      effortTd.appendChild(effortTag);
+      tr.appendChild(effortTd);
+
+      const accTd = document.createElement("td");
+      const accCell = document.createElement("div");
+      accCell.className = "acc-cell";
+
+      const accValue = document.createElement("span");
+      accValue.className = "acc-value";
+      accValue.textContent = fmtAcc(row.acc);
+      accCell.appendChild(accValue);
+
+      const track = document.createElement("div");
+      track.className = "acc-track";
+      const fill = document.createElement("div");
+      fill.className = "acc-fill";
+      const width = typeof row.acc === "number" ? Math.max(0, Math.min(1, row.acc)) * 100 : 0;
+      fill.style.width = `${width.toFixed(2)}%`;
+      track.appendChild(fill);
+      accCell.appendChild(track);
+      accTd.appendChild(accCell);
+      tr.appendChild(accTd);
+
+      tbody.appendChild(tr);
+    }
+
+    if (rows.length === 0) {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.colSpan = COLUMNS.length;
+      td.className = "muted";
+      td.textContent = "No benchmark rows match current filters.";
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    }
+
+    document.getElementById("resultMeta").textContent = `Showing ${rows.length} of ${total} benchmark rows.`;
+  }
+
+  function updateHeroStats() {
+    const rows = state.data && state.data.entries ? state.data.entries : [];
+    const topRow = rows
+      .filter(r => typeof r.acc === "number" && !Number.isNaN(r.acc))
+      .sort((a, b) => compareValue(a.acc, b.acc, "desc") || compareValue(a.model || "", b.model || "", "asc"))[0] || null;
+    const rawUpdated = state.data ? (state.data.generated_at || "") : "";
+    let updatedShort = "-";
+    if (rawUpdated) {
+      const d = new Date(rawUpdated);
+      updatedShort = Number.isNaN(d.getTime()) ? String(rawUpdated).slice(0, 10) : d.toISOString().slice(0, 10);
+    }
+    document.getElementById("statLeader").textContent = topRow ? `${topRow.model} · ${fmtAcc(topRow.acc)}` : "-";
+    document.getElementById("statEntries").textContent = String(rows.length);
+    document.getElementById("statUpdated").textContent = updatedShort;
+  }
+
+  function bindUI() {
+    document.getElementById("search").addEventListener("input", (e) => {
+      state.search = e.target.value.trim();
+      renderTable();
+    });
+    document.getElementById("modeFilter").addEventListener("change", (e) => {
+      state.mode = e.target.value;
+      renderTable();
+    });
+    document.getElementById("effortFilter").addEventListener("change", (e) => {
+      state.effort = e.target.value;
+      renderTable();
+    });
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      state.search = "";
+      state.mode = "";
+      state.effort = "";
+      state.sortKey = "acc";
+      state.sortDir = "desc";
+      document.getElementById("search").value = "";
+      document.getElementById("modeFilter").value = "";
+      document.getElementById("effortFilter").value = "";
+      renderTable();
+    });
+  }
+
+  async function loadJson(path) {
+    const res = await fetch(path, { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  }
+
+  async function init() {
+    state.data = await loadJson("./benchmark.json");
+    const generated = state.data.generated_at ? `generated at: ${state.data.generated_at}` : "";
+    const source = state.data.source_csv ? `source: ${state.data.source_csv}` : "";
+    document.getElementById("meta").textContent = `${state.data.name}${generated ? " | " + generated : ""}${source ? " | " + source : ""}`;
+    bindUI();
+    updateHeroStats();
+    renderTable();
+  }
+
+  init().catch(err => {
+    document.getElementById("meta").textContent = `Failed to load benchmark data: ${err && err.message ? err.message : "unknown error"}`;
+    document.getElementById("resultMeta").textContent = "Benchmark leaderboard is temporarily unavailable.";
+    console.error(err);
+  });
+</script>
+</body>
+</html>

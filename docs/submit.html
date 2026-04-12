@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MedThinkVQA Submission Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --maxw: 1040px;
+      --line: rgba(18, 80, 130, 0.16);
+      --panel: rgba(255, 255, 255, 0.86);
+      --text: #0d2847;
+      --muted: #4d6278;
+      --brand: #126cb7;
+      --brand2: #00a4b5;
+      --shadow: 0 16px 38px rgba(16, 72, 130, 0.13);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: linear-gradient(170deg, #f3f9ff 0%, #f8fcff 45%, #edf8ff 100%);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(40rem 40rem at 6% -10%, rgba(18, 108, 183, 0.22) 0%, rgba(18, 108, 183, 0) 72%),
+        radial-gradient(34rem 34rem at 94% 6%, rgba(0, 164, 181, 0.2) 0%, rgba(0, 164, 181, 0) 70%);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 251, 255, 0.75);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    nav a:first-child { margin-right: auto; font-family: "Sora", "Manrope", sans-serif; letter-spacing: 0.03em; }
+    nav a:hover { border-color: var(--line); background: rgba(255, 255, 255, 0.72); }
+    nav a:last-child { color: #fff; border: none; background: linear-gradient(135deg, var(--brand), var(--brand2)); }
+
+    main { max-width: var(--maxw); margin: 0 auto; padding: 26px 18px 56px; display: grid; gap: 16px; }
+
+    .hero, .card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      animation: fadeup 0.58s ease both;
+    }
+
+    .hero h1, h2, h3 { font-family: "Sora", "Manrope", sans-serif; letter-spacing: 0.02em; }
+    .hero h1 { margin: 0 0 10px; font-size: clamp(1.8rem, 2.7vw, 2.3rem); line-height: 1.18; }
+    .muted { color: var(--muted); }
+
+    .notice {
+      margin-top: 12px;
+      border: 1px solid rgba(0, 143, 180, 0.24);
+      border-radius: 14px;
+      background: linear-gradient(145deg, #ecf8ff, #f6fbff);
+      padding: 12px 14px;
+      color: #214464;
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+    }
+
+    .step {
+      border: 1px solid rgba(22, 92, 150, 0.16);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .step-index {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.73rem;
+      font-weight: 800;
+      color: #0e558d;
+      background: rgba(18, 108, 183, 0.12);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    code, pre {
+      background: rgba(248, 252, 255, 0.98);
+      border: 1px solid rgba(20, 88, 145, 0.18);
+      border-radius: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.86rem;
+    }
+
+    pre { padding: 12px; overflow: auto; margin: 0; }
+    ul, ol { margin-top: 8px; }
+    .link { color: #0e5f9e; font-weight: 700; }
+
+    @keyframes fadeup { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } .hero, .card { padding: 16px; } }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">MedThinkVQA</a>
+    <a href="https://github.com/benluwang/MedThinkVQA#readme" target="_blank" rel="noopener noreferrer">Overview</a>
+    <a href="https://github.com/benluwang/MedThinkVQA" target="_blank" rel="noopener noreferrer">Code</a>
+    <a href="https://huggingface.co/datasets/bio-nlp-umass/MedThinkVQA" target="_blank" rel="noopener noreferrer">Data</a>
+    <a href="index.html">Leaderboard</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Submission Guide</h1>
+    <p class="muted">
+      Official leaderboard submissions are managed in GitHub Issues:
+      <a class="link" href="https://github.com/benluwang/MedThinkVQA/issues" target="_blank" rel="noopener noreferrer">github.com/benluwang/MedThinkVQA/issues</a>
+    </p>
+    <div class="notice">
+      <b>Reminder:</b> MedThinkVQA data are licensed under CC BY-NC-SA 4.0 for research and education only, not for clinical use.
+      The current leaderboard uses the released test split.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0;">Three-Step Workflow</h2>
+    <div class="steps">
+      <article class="step">
+        <span class="step-index">Step 1</span>
+        <h3>Evaluate</h3>
+        <p>Download the released test split from <a class="link" href="https://huggingface.co/datasets/bio-nlp-umass/MedThinkVQA" target="_blank" rel="noopener noreferrer">Hugging Face</a> and prepare predictions in the required JSONL format.</p>
+      </article>
+      <article class="step">
+        <span class="step-index">Step 2</span>
+        <h3>Format</h3>
+        <p>Keep all original sample fields unchanged and append model outputs in required fields.</p>
+      </article>
+      <article class="step">
+        <span class="step-index">Step 3</span>
+        <h3>Submit</h3>
+        <p>Create a GitHub Issue, attach prediction JSONL and any external metrics summary you computed, then provide model metadata and link.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0;">Result File Requirements</h2>
+    <ul>
+      <li><code>prediction</code> (required): final option label, one of <code>"A"</code> to <code>"E"</code>.</li>
+      <li><code>prediction_rationale</code> (recommended): reasoning trace produced during inference.</li>
+      <li><code>prediction_twi</code> (optional): structured TwI step outputs for richer analysis.</li>
+    </ul>
+    <p class="muted">Use a clear file name, for example <code>medthinkvqa_test_submission.jsonl</code>.</p>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0;">Example JSON Object</h2>
+    <pre><code>{
+  "title": "Case number 19254",
+  "CLINICAL_HISTORY": "...",
+  "image_count": 2,
+  "image_01_id": "abc123",
+  "image_01_path": "images/case19254/abc123.jpg",
+  "image_01_modality": "MRI",
+  "image_01_sub_modality": "Conventional MRI",
+  "image_02_id": "def456",
+  "image_02_path": "images/case19254/def456.jpg",
+  "image_02_modality": "CT",
+  "image_02_sub_modality": "HRCT / Thin-slice CT",
+  "options": {"A": "...", "B": "...", "C": "...", "D": "...", "E": "..."},
+  "correct_answer": "C",
+  "prediction": "C",
+  "prediction_rationale": "...",
+  "prediction_twi": {
+    "step1_per_image_findings": ["..."],
+    "step2_integrated_summary": "...",
+    "step3_differential_reasoning": "..."
+  }
+}</code></pre>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0;">Submission Checklist</h2>
+    <ol>
+      <li>Create a submission issue in the MedThinkVQA repository.</li>
+      <li>Attach prediction JSONL and, if available, a short metrics summary from your own evaluation pipeline.</li>
+      <li>Include model name, organization, date, open-source status, and reference link.</li>
+    </ol>
+    <p class="muted">After verification, entries are merged into <code>docs/benchmark.json</code> and reflected on the leaderboard site.</p>
+  </section>
+</main>
+</body>
+</html>

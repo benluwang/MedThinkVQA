@@ -1,0 +1,420 @@
+{
+  "name": "MedThinkVQA Benchmark Leaderboard",
+  "source_csv": "selected_model_newacc_updated.csv",
+  "generated_at": "2026-03-04T04:50:41Z",
+  "entries": [
+    {
+      "model": "claude-4.6-opus",
+      "acc": 0.5722222222222222,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gemini-3-pro",
+      "acc": 0.5527777777777778,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5.2",
+      "acc": 0.5486111111111112,
+      "mode": "Thinking",
+      "effort": "xhigh",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5.2",
+      "acc": 0.5333333333333333,
+      "mode": "Thinking",
+      "effort": "medium",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5.2",
+      "acc": 0.5444444444444444,
+      "mode": "Thinking",
+      "effort": "high",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5.2",
+      "acc": 0.5291666666666667,
+      "mode": "Thinking",
+      "effort": "low",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-397b-a17b-fp8",
+      "acc": 0.5222222222222223,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gemini-2.5-pro",
+      "acc": 0.5152777777777777,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-122b-a10b",
+      "acc": 0.5125,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3.5-27b",
+      "acc": 0.5055555555555555,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5.2",
+      "acc": 0.49583333333333335,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-397b-a17b-fp8",
+      "acc": 0.45694444444444443,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-122b-a10b",
+      "acc": 0.4527777777777778,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3.5-27b",
+      "acc": 0.45,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3.5-35b-a3b",
+      "acc": 0.45,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-9b",
+      "acc": 0.44166666666666665,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "lingshu-medical-mllm-lingshu-32b",
+      "acc": 0.43194444444444446,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "gemini-2.5-flash",
+      "acc": 0.41805555555555557,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3.5-35b-a3b",
+      "acc": 0.4111111111111111,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "opengvlab-internvl3-5-38b-hf",
+      "acc": 0.40694444444444444,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "Qwen2.5-VL-72B-Instruct",
+      "acc": 0.4,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5-mini",
+      "acc": 0.3972222222222222,
+      "mode": "Thinking",
+      "effort": "high",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5-mini",
+      "acc": 0.3958333333333333,
+      "mode": "Thinking",
+      "effort": "medium",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "opengvlab-internvl3-5-1b-hf",
+      "acc": 0.37777777777777777,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "qwen-qwen3-5-4b",
+      "acc": 0.3763888888888889,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "lingshu-medical-mllm-lingshu-7b",
+      "acc": 0.36944444444444446,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "qwen-qwen3-5-9b",
+      "acc": 0.36944444444444446,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "opengvlab-internvl3-5-14b-hf",
+      "acc": 0.35694444444444445,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "opengvlab-internvl3-5-2b-hf",
+      "acc": 0.35555555555555557,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "opengvlab-internvl3-5-30b-a3b-hf",
+      "acc": 0.3541666666666667,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "qwen-qwen3-vl-235b-a22b-fp8",
+      "acc": 0.3527777777777778,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-vl-235b-a22b-instruct-fp8",
+      "acc": 0.3527777777777778,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-4b",
+      "acc": 0.34444444444444444,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-32b-instruct",
+      "acc": 0.3416666666666667,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "opengvlab-internvl3-5-4b-hf",
+      "acc": 0.3375,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "opengvlab-internvl3-5-8b-hf",
+      "acc": 0.3347222222222222,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "gpt-5-mini",
+      "acc": 0.33194444444444443,
+      "mode": "Thinking",
+      "effort": "low",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5-mini",
+      "acc": 0.33055555555555555,
+      "mode": "Thinking",
+      "effort": "minimal",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-32b",
+      "acc": 0.32916666666666666,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-2b",
+      "acc": 0.325,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "medgemma-27B",
+      "acc": 0.31805555555555554,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-0.8b",
+      "acc": 0.3138888888888889,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5-nano",
+      "acc": 0.3125,
+      "mode": "Thinking",
+      "effort": "medium",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-8b-instruct",
+      "acc": 0.3125,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-30b-a3b-instruct",
+      "acc": 0.3111111111111111,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5-nano",
+      "acc": 0.30833333333333335,
+      "mode": "Thinking",
+      "effort": "high",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-2b",
+      "acc": 0.3,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-2b-instruct",
+      "acc": 0.2972222222222222,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "medgemma-1.5-4b",
+      "acc": 0.29583333333333334,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-30b-a3b",
+      "acc": 0.29583333333333334,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "lingshu-medical-mllm-lingshu-i-8b",
+      "acc": 0.2916666666666667,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "ratio100"
+    },
+    {
+      "model": "qwen3-vl-8b",
+      "acc": 0.2916666666666667,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-4b",
+      "acc": 0.2902777777777778,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-2b",
+      "acc": 0.2791666666666667,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen3-vl-4b-instruct",
+      "acc": 0.26944444444444443,
+      "mode": "Non-thinking",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5-nano",
+      "acc": 0.24444444444444444,
+      "mode": "Thinking",
+      "effort": "low",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "gpt-5-nano",
+      "acc": 0.24444444444444444,
+      "mode": "Thinking",
+      "effort": "minimal",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "phi4",
+      "acc": 0.2222222222222222,
+      "mode": "Unspecified",
+      "effort": "N/A",
+      "ratio_bucket": "no-ratio"
+    },
+    {
+      "model": "qwen-qwen3-5-0.8b",
+      "acc": 0.20972222222222223,
+      "mode": "Thinking",
+      "effort": "standard",
+      "ratio_bucket": "no-ratio"
+    }
+  ]
+}

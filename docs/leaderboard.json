@@ -1,0 +1,5 @@
+{
+  "deprecated": true,
+  "message": "The live public leaderboard is sourced from docs/benchmark.json.",
+  "source": "benchmark.json"
+}
