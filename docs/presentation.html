@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MedThinkVQA ICLR Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: linear-gradient(165deg, #f4f9ff 0%, #eef8ff 48%, #f8fcff 100%);
+      --panel: rgba(255, 255, 255, 0.88);
+      --panel-strong: rgba(255, 255, 255, 0.96);
+      --text: #0d2847;
+      --muted: #4e6379;
+      --line: rgba(18, 80, 130, 0.16);
+      --brand: #126cb7;
+      --brand2: #00a4b5;
+      --shadow: 0 16px 38px rgba(16, 72, 130, 0.13);
+      --maxw: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(36rem 36rem at 8% -8%, rgba(18, 108, 183, 0.22) 0%, rgba(18, 108, 183, 0) 70%),
+        radial-gradient(32rem 32rem at 96% 4%, rgba(0, 164, 181, 0.18) 0%, rgba(0, 164, 181, 0) 72%);
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 251, 255, 0.74);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    nav a:first-child {
+      margin-right: auto;
+      font-family: "Sora", "Manrope", sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    nav a:hover {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    nav a.cta {
+      color: #fff;
+      border: none;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+    }
+
+    main {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 18px 54px;
+    }
+
+    .hero, .panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 26px;
+      margin-bottom: 18px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(236, 247, 255, 0.84));
+    }
+
+    h1, h2 {
+      font-family: "Sora", "Manrope", sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.12;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 70ch;
+      color: var(--muted);
+    }
+
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .btn.primary {
+      color: #fff;
+      border: none;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      border-radius: 18px;
+      background: #081b2a;
+      box-shadow: 0 10px 28px rgba(18, 74, 130, 0.12);
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .note code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 720px) {
+      .hero, .panel { padding: 14px; }
+      main { padding-top: 18px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="./index.html">MedThinkVQA</a>
+    <a href="./index.html#news">News</a>
+    <a href="./index.html#leaderboard">Leaderboard</a>
+    <a href="https://github.com/benluwang/MedThinkVQA#readme" target="_blank" rel="noopener noreferrer">README</a>
+    <a class="cta" href="./iclr_presentation.mp4">Download MP4</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>ICLR Presentation</h1>
+    <p class="lede">This page hosts the MedThinkVQA presentation video with a native browser player. If playback still fails in your browser, use the download link below or try a Chromium-based browser.</p>
+    <div class="actions">
+      <a class="btn primary" href="./iclr_presentation.mp4">Download MP4</a>
+      <a class="btn" href="https://github.com/benluwang/MedThinkVQA#readme" target="_blank" rel="noopener noreferrer">Back to README</a>
+    </div>
+  </section>
+
+  <section class="panel">
+    <video controls preload="metadata" playsinline>
+      <source src="./iclr_presentation.mp4" type="video/mp4" />
+      Your browser does not support embedded MP4 playback. Use the download link above instead.
+    </video>
+    <p class="note">If the page loads before the video file finishes propagating on GitHub Pages, refresh once after a minute. File: <code>docs/iclr_presentation.mp4</code></p>
+  </section>
+</main>
+</body>
+</html>

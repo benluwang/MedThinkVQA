@@ -11,12 +11,12 @@ Unlike prior medical VQA benchmarks that typically contain ≤1 image per case, 
 ## ICLR Presentation
 
 <p align="center">
-  <a href="assets/iclr_presentation.mp4">
+  <a href="https://benluwang.github.io/MedThinkVQA/presentation.html">
     <img src="assets/iclr_presentation_preview.svg" alt="Preview card for the MedThinkVQA ICLR presentation video" width="100%">
   </a>
 </p>
 
-Click the preview above to open the MP4 video. Direct link: [assets/iclr_presentation.mp4](assets/iclr_presentation.mp4)
+Click the preview above to open the browser player page: [Presentation page](https://benluwang.github.io/MedThinkVQA/presentation.html). GitHub file link: [assets/iclr_presentation.mp4](assets/iclr_presentation.mp4)
 
 ## Benchmark at a Glance
 
