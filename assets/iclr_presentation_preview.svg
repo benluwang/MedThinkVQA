@@ -1,0 +1,52 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MedThinkVQA ICLR presentation preview</title>
+  <desc id="desc">A clickable preview card that links to the MedThinkVQA ICLR presentation video.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6efe3" />
+      <stop offset="55%" stop-color="#d7ecf4" />
+      <stop offset="100%" stop-color="#c8ddd4" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#113a5d" />
+      <stop offset="100%" stop-color="#0a5b4d" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffe49a" />
+      <stop offset="100%" stop-color="#ffd06e" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <circle cx="1320" cy="120" r="180" fill="#ffffff" fill-opacity="0.28" />
+  <circle cx="230" cy="760" r="210" fill="#ffffff" fill-opacity="0.2" />
+  <circle cx="1480" cy="760" r="120" fill="#ffffff" fill-opacity="0.16" />
+
+  <rect x="88" y="78" width="1424" height="744" rx="40" fill="url(#panel)" />
+  <rect x="88" y="78" width="1424" height="744" rx="40" fill="#081b2a" fill-opacity="0.18" />
+  <rect x="88" y="78" width="1424" height="744" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.32" stroke-width="3" />
+
+  <rect x="136" y="130" width="238" height="42" rx="21" fill="url(#accent)" />
+  <text x="255" y="158" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#17324a">ICLR 2026</text>
+
+  <text x="136" y="260" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" fill="#ffffff">MedThinkVQA</text>
+  <text x="136" y="338" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="700" fill="#ffe9b7">ICLR Presentation</text>
+  <text x="136" y="400" font-family="Arial, Helvetica, sans-serif" font-size="31" fill="#d7ecf4">Click this card to open the uploaded MP4 presentation video.</text>
+
+  <rect x="136" y="464" width="520" height="232" rx="28" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18" />
+  <rect x="172" y="500" width="130" height="84" rx="16" fill="#ffe49a" />
+  <rect x="320" y="500" width="130" height="84" rx="16" fill="#f6efe3" />
+  <rect x="468" y="500" width="130" height="84" rx="16" fill="#d7ecf4" />
+  <rect x="172" y="602" width="426" height="24" rx="12" fill="#ffffff" fill-opacity="0.9" />
+  <rect x="172" y="642" width="286" height="18" rx="9" fill="#ffffff" fill-opacity="0.58" />
+  <text x="172" y="732" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#c7dde7">Multiple images • Diagnostic reasoning • Benchmark overview</text>
+
+  <circle cx="1234" cy="450" r="138" fill="#ffffff" fill-opacity="0.94" />
+  <circle cx="1234" cy="450" r="152" fill="none" stroke="#ffffff" stroke-opacity="0.26" stroke-width="10" />
+  <polygon points="1187,374 1187,526 1319,450" fill="#0a5b4d" />
+
+  <rect x="1006" y="626" width="456" height="74" rx="37" fill="#081b2a" fill-opacity="0.28" stroke="#ffffff" stroke-opacity="0.2" />
+  <text x="1234" y="672" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#ffffff">Open video file on GitHub</text>
+
+  <text x="136" y="790" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#d2e7ef">Uploaded file: assets/iclr_presentation.mp4</text>
+</svg>
