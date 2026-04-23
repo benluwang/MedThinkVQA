@@ -8,6 +8,14 @@ Unlike prior medical VQA benchmarks that typically contain ≤1 image per case, 
 - Leaderboard: https://benluwang.github.io/MedThinkVQA/
 - Submission Guide: https://benluwang.github.io/MedThinkVQA/submit.html
 
+## ICLR Presentation
+
+<p align="center">
+  <video src="https://github.com/benluwang/MedThinkVQA/raw/main/assets/iclr_presentation.mp4" controls width="100%"></video>
+</p>
+
+Direct video link: [assets/iclr_presentation.mp4](assets/iclr_presentation.mp4)
+
 ## Benchmark at a Glance
 
 MedThinkVQA is designed to be hard for current multimodal models. Benchmark results show three consistent patterns: performance improves when models can use more images, when they are allowed stronger reasoning effort, and when larger multimodal variants are used within the same family.
