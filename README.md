@@ -4,6 +4,7 @@ MedThinkVQA is an expert-annotated benchmark for **multi-image** diagnostic reas
 Unlike prior medical VQA benchmarks that typically contain ≤1 image per case, MedThinkVQA requires models to **extract evidence from each image**, **integrate cross-view information**, and **perform differential-diagnosis reasoning**.
 
 **Links**
+- Paper: [ICLR 2026 / OpenReview](https://openreview.net/forum?id=h2p5eOFpcF) · [arXiv](https://arxiv.org/abs/2604.16506) · [Author full text](https://benluwang.github.io/papers/medthinkvqa/)
 - Hugging Face Dataset: https://huggingface.co/datasets/bio-nlp-umass/MedThinkVQA
 - Leaderboard: https://benluwang.github.io/MedThinkVQA/
 - Submission Guide: https://benluwang.github.io/MedThinkVQA/submit.html
@@ -196,3 +197,18 @@ Example row excerpt from `test.jsonl`:
 
 - zonghaiyao@umass.edu
 - benlu.wang@yale.edu
+
+## Citation
+
+If you use MedThinkVQA, please cite the ICLR 2026 paper:
+
+```bibtex
+@inproceedings{yao2026medical,
+  title={Medical thinking with multiple images},
+  author={Zonghai Yao and Benlu Wang and Yifan Zhang and Junda Wang and Iris Xia and Zhipeng Tang and Shuo Han and Feiyun Ouyang and Zhichao Yang and Arman Cohan and Hong Yu},
+  booktitle={The Fourteenth International Conference on Learning Representations},
+  year={2026},
+  url={https://openreview.net/forum?id=h2p5eOFpcF},
+  note={{arXiv}:2604.16506}
+}
+```
